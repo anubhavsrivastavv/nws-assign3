@@ -35,11 +35,9 @@ def Q8():
 
   #RR
   tput_list_mobRR, p_mobRR = _cdf('Q8-mobileRR')
-  #tput_list_mobRR_new, p_mobRR_new = _cdf('uncommented_data/Q8-mobileRR')
   tput_list_staRR, p_staRR = _cdf('Q8-staticRR')
   fig, ax = plt.subplots()
   ax.plot(tput_list_mobRR, p_mobRR, label = 'Mobile RR')
-  #ax.plot(tput_list_mobRR_new, p_mobRR_new, label = 'Mobile RR Uncommented')
   ax.plot(tput_list_staRR, p_staRR, label = 'Static RR')
   """plt.xlabel('Throughput')
   plt.ylabel('CDF')
@@ -48,11 +46,9 @@ def Q8():
 
   #PF
   tput_list_mobPF, p_mobPF = _cdf('Q8-mobilePF')
-  #tput_list_mobPF_new, p_mobPF_new = _cdf('uncommented_data/Q8-mobilePF')
   tput_list_staPF, p_staPF = _cdf('Q8-staticPF')
   #fig, ax = plt.subplots()
   ax.plot(tput_list_mobPF, p_mobPF, label = 'Mobile PF')
-  #ax.plot(tput_list_mobPF_new, p_mobPF_new, label = 'Mobile PF Uncommented')
   ax.plot(tput_list_staPF, p_staPF, label = 'Static PF')
   """plt.xlabel('Throughput')
   plt.ylabel('CDF')
