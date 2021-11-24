@@ -101,19 +101,42 @@ def Q9():
   plt.legend()
   plt.show()
 
+def _snr(file_path, scheduling_algo):
+  f = open(file_path, 'r+')
+  y_vals, x_vals =[], []
+  count = 1
+  for line in f.readlines():
+    y_vals.append(float(line))
+    x_vals.append(count/1000)
+    count += 1
+
+  #print(count)
+
+  fig, ax = plt.subplots()
+  ax.plot(x_vals, y_vals, label = scheduling_algo)
+  plt.xlabel('Time (in seconds)')
+  plt.ylabel('SNR')
+  plt.legend()
+  plt.show()
+
+
 
 
 if __name__ == "__main__":
 
   parser = argparse.ArgumentParser()
-  parser.add_argument("-t", "--task", help="specify Q8, Q9")
+  parser.add_argument("-t", "--task", help="specify Q8, Q9 or Q10")
   args = parser.parse_args()
-  print(args)
+  #print(args)
 
   if args.task == 'Q8':
     Q8()
   elif args.task == 'Q9':
     Q9()
+  elif args.task == 'Q10':
+    _snr('Q10-RR-SNR', 'RR')
+    _snr('Q10-MR-SNR', 'MR')
+    _snr('Q10-PF-SNR', 'PF')
   else:
     print('Please specify the task to be performed')
 

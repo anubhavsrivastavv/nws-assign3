@@ -54,14 +54,14 @@ def generate_data_B(file_path):
   loss_rate = [0 for i in range(6)]
 
   #This is for single iteration
-  data = json_data_list[0]
+  data = json_data_list[1]
   for i in range(6):
     througput[i] = througput[i] + float(data["Flow"+str(i+1)]["Throughput"].split()[0])
     loss_rate[i] = loss_rate[i] + float(data["Flow"+str(i+1)]["Loss Rate"])
     delay[i] = delay[i] + float(data["Flow"+str(i+1)]['Mean delay'].split()[0])
 
-  """
-  #This is for multiple iterations
+  
+  """#This is for multiple iterations
 
   for data in json_data_list:
     #Flowwise
@@ -81,7 +81,7 @@ def generate_data_B(file_path):
     print(f'For UE {i+1}')
     print('througput: ', througput[i])
     print('loss_rate: ', loss_rate[i])
-    print('delay: ', delay[i])  
+    print('delay: ', delay[i])
   
   #return [i/5 for i in througput], [i/5 for i in loss_rate], [i/5 for i in delay]
   return througput, loss_rate, delay
@@ -96,13 +96,14 @@ if __name__ == "__main__":
 
   if args.task == 'T1' or args.task == 'T2':
     print('############### Part A ###############')
-    generate_data_A(args.file_path)
+    generate_data_A(args.file_path.strip(' \"\''))
     print()
     print('############### Part B ###############')
-    generate_data_B(args.file_path)
+    generate_data_B(args.file_path.strip(' \"\''))
 
   elif args.task == 'T3':
-    generate_data_A(args.file_path)
+    generate_data_A(args.file_path.strip(' \"\''))
+
   else:
     print('Please specify the task to be performed')
 
