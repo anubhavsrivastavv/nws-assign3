@@ -60,23 +60,16 @@ Our execution traces are present in folder ns-3-dev/outputFiles/Task2
 
 TASK3
 =====
-
-TODO - crosscheck the output file names with madhuri 
-
 Execute Task3 using script scripts/exec_scr/T3 from ns-3-dev folder as shown below:
 #. T3
-On running the script, Output files will be generated in the folder ns-3-dev/outputFiles/T3 with the name T3-<speed>-<schedulername> (eg : T3-10-RR, T3-50-PF etc)
+On running the script, output files will be generated in the folder ns-3-dev/outputFiles/T3 with the name T3-<speed>-<schedulername> (eg : T3-10-RR, T3-50-PF etc)
 
 
 Question 7
 ==========
 Execute Q7 using the script scripts/exec_scr/Q7 from ns-3-dev folder as shown below.
 #. Q7
-
-To plot the REM, execute the script scripts/dataGen_scr/Q7-plot from outputFiles/Q7/ folder as shown below
-#. Q7-plot
-
-This generates three plots - nr-rem--snr.png, nr-rem--sinr.png and nr-rem--ipsd.png
+This will generate the REM plots (three plots) in the folder outputFiles/Q7/
 
 Question 8
 ==========
@@ -94,9 +87,8 @@ Question 10
 ===========
 Execute Q10 using the script scripts/exec_scr/Q10 from the ns-3-dev folder as show below:
 . Q10
+This generates the SNR values and the instantaneous throughputs for three schedulers in the files SNR, Q10-throughPutsTdmaRR, Q10-throughPutsTdmaPR and Q10-throughPutsTdmaMR respectively.
 
-Execute the code as below to collect the SNR logs. 
-./waf --run "asg3 --REMP=true --ueMobility=mobile --ueNumPergNb=1 --rngRun=2 --speed=50 --simTime=20 --numerology=1 --fullBufferFlag=1" &>logsnr.txt
 
 ---------------------------------------------
 Data Generation and Graph creation

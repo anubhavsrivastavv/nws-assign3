@@ -1,0 +1,92 @@
+{
+"Flow1" : {
+	"src" : "1.0.0.2:49153",
+	"dest" : "7.0.0.2:1234",
+	"protocol" : "UDP",
+	"Tx Packets" : "11500",
+	"Tx Bytes" : "17572000",
+	"TxOffered" : "30.560000 Mbps",
+	"Rx Bytes" : "4645120",
+	"Throughput" : "8.078858 Mbps",
+	"Mean delay" : "1700.621943 ms",
+	"Mean jitter" : "1.303618 ms",
+	"Rx Packets" : "3040",
+	"Loss Rate" : "73.565217"
+},
+"Flow2" : {
+	"src" : "1.0.0.2:49154",
+	"dest" : "7.0.0.3:1234",
+	"protocol" : "UDP",
+	"Tx Packets" : "11500",
+	"Tx Bytes" : "17572000",
+	"TxOffered" : "30.560000 Mbps",
+	"Rx Bytes" : "4527464",
+	"Throughput" : "7.874352 Mbps",
+	"Mean delay" : "1716.609248 ms",
+	"Mean jitter" : "1.339521 ms",
+	"Rx Packets" : "2963",
+	"Loss Rate" : "74.234783"
+},
+"Flow3" : {
+	"src" : "1.0.0.2:49155",
+	"dest" : "7.0.0.4:1234",
+	"protocol" : "UDP",
+	"Tx Packets" : "11500",
+	"Tx Bytes" : "17572000",
+	"TxOffered" : "30.560000 Mbps",
+	"Rx Bytes" : "296432",
+	"Throughput" : "0.517689 Mbps",
+	"Mean delay" : "2269.861742 ms",
+	"Mean jitter" : "23.058247 ms",
+	"Rx Packets" : "194",
+	"Loss Rate" : "98.313043"
+},
+"Flow4" : {
+	"src" : "1.0.0.2:49156",
+	"dest" : "7.0.0.5:1234",
+	"protocol" : "UDP",
+	"Tx Packets" : "11500",
+	"Tx Bytes" : "17572000",
+	"TxOffered" : "30.560000 Mbps",
+	"Rx Bytes" : "4646648",
+	"Throughput" : "8.081265 Mbps",
+	"Mean delay" : "1700.494028 ms",
+	"Mean jitter" : "1.303321 ms",
+	"Rx Packets" : "3041",
+	"Loss Rate" : "73.556522"
+},
+"Flow5" : {
+	"src" : "1.0.0.2:49157",
+	"dest" : "7.0.0.6:1234",
+	"protocol" : "UDP",
+	"Tx Packets" : "11500",
+	"Tx Bytes" : "17572000",
+	"TxOffered" : "30.560000 Mbps",
+	"Rx Bytes" : "0",
+	"Throughput" : "0 Mbps",
+	"Mean delay" : "0 ms",
+	"Mean upt" : "0 Mbps",
+	"Mean jitter" : "0 ms",
+	"Rx Packets" : "0",
+	"Loss Rate" : "100.000000"
+},
+"Flow6" : {
+	"src" : "1.0.0.2:49158",
+	"dest" : "7.0.0.7:1234",
+	"protocol" : "UDP",
+	"Tx Packets" : "11500",
+	"Tx Bytes" : "17572000",
+	"TxOffered" : "30.560000 Mbps",
+	"Rx Bytes" : "0",
+	"Throughput" : "0 Mbps",
+	"Mean delay" : "0 ms",
+	"Mean upt" : "0 Mbps",
+	"Mean jitter" : "0 ms",
+	"Rx Packets" : "0",
+	"Loss Rate" : "100.000000"
+},
+
+"Mean flow throughput" : "4.092027",
+"Mean flow delay" : "1231.264494"
+}
+==================
