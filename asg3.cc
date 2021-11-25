@@ -30,7 +30,8 @@
 #include "ns3/nr-module.h"
 #include "ns3/config-store-module.h"
 #include "ns3/antenna-module.h"
-
+#include "ns3/nr-helper.h"
+#include "ns3/log.h"
 /**
  * \file cttc-3gpp-channel-nums.cc
  * \ingroup examples
@@ -65,6 +66,9 @@
 using namespace ns3;
 
 NS_LOG_COMPONENT_DEFINE ("3gppChannelNumerologiesExample");
+void ThroughputMonitor (FlowMonitorHelper *fmhelper, Ptr<FlowMonitor> flowMon);
+std:: map<int ,std::vector<double>> flowwise;
+std::ofstream outFile1;
 
 int
 main (int argc, char *argv[])
@@ -102,13 +106,16 @@ main (int argc, char *argv[])
   double lambda = 2500; //pkt generation rate or pkts/sec
   uint32_t udpPacketSize = 1500;
   bool fullBufferFlag = true;
+  bool instTput = false;
+  bool remPlot = false;
+  bool snrLog = false;
 //  uint8_t fixedMcs = 28;
 //  bool useFixedMcs = false;
 //  bool singleUeTopology = false;
   // Where we will store the output files.
   std::string simOutFile = "test";
 //  std::string simTag = "test";
-  std::string outputDir = "./outputFiles/T1-FullBuffer";
+  std::string outputDir = "./outputFiles";
  
 
   CommandLine cmd;
@@ -122,6 +129,9 @@ main (int argc, char *argv[])
   cmd.AddValue ("simTime", "Simulation Time", simTime);
   cmd.AddValue ("outputDir", "directory where to store simulation results", outputDir);
   cmd.AddValue ("simOutFile", "file where to store simulation results", simOutFile);
+  cmd.AddValue ("instTput", "Specifies if we need to retieve instantaneous throughput of UE", instTput);
+  cmd.AddValue ("snrLog", "Specifies if snr logging is enabled", snrLog);
+  cmd.AddValue ("remPlot", "Specifies if snr logging is enabled", remPlot);
 
   cmd.Parse (argc, argv);
   
@@ -144,6 +154,11 @@ main (int argc, char *argv[])
   else
   {
       lambda = 1000;
+  }
+
+  if(logging)
+  {
+     // LogComponentEnable ("NrRadioEnvironmentMapHelper", LOG_LEVEL_INFO);
   }
  printf("sim time is %f", simTime);
   NS_ASSERT (ueNumPergNb > 0);
@@ -322,7 +337,7 @@ main (int argc, char *argv[])
           xValue = 10 + 2*j;
           uePositionAlloc->Add (Vector (xValue, 0, ueHeight));
       }
-      */
+  */    
   }
 
   udMobility.SetPositionAllocator (uePositionAlloc);
@@ -454,6 +469,55 @@ main (int argc, char *argv[])
   monitor->SetAttribute ("JitterBinWidth", DoubleValue (0.001));
   monitor->SetAttribute ("PacketSizeBinWidth", DoubleValue (20));
 
+  Ptr<NrRadioEnvironmentMapHelper> remHelper = CreateObject<NrRadioEnvironmentMapHelper> ();
+  if(remPlot)
+  {
+      // configure REM parameters
+      if (snrLog)
+      {
+          LogComponentEnable ("NrRadioEnvironmentMapHelper", LOG_LEVEL_INFO);
+      }
+
+      //Rem parameters
+      double xMin = -3000.0;
+      double xMax = 3000.0;
+      uint16_t xRes = 100;
+      double yMin = -3000.0;
+      double yMax = 3000.0;
+      uint16_t yRes = 100;
+      std::string simTag = "";
+
+      remHelper->SetMinX (xMin);
+      remHelper->SetMaxX (xMax);
+      remHelper->SetResX (xRes);
+      remHelper->SetMinY (yMin);
+      remHelper->SetMaxY (yMax);
+      remHelper->SetResY (yRes);
+      remHelper->SetSimTag (simTag);
+      remHelper->SetRemMode (NrRadioEnvironmentMapHelper::BEAM_SHAPE);
+
+      //configure beam that will be shown in REM map
+      //DynamicCast<NrGnbNetDevice> (gNbNetDev.Get (0))->GetPhy (0)->GetBeamManager ()->SetSector (sector, theta);
+      for(int i=0 ; i<ueNumPergNb ; i++){
+          //DynamicCast<NrUeNetDevice> (ueNetDev.Get (i))->GetPhy (0)->GetBeamManager ()->ChangeToQuasiOmniBeamformingVector ();
+          gNbNetDev.Get(0)->GetObject<NrGnbNetDevice>()->GetPhy(0)->GetBeamManager()->ChangeBeamformingVector(ueNetDev.Get(i));
+          remHelper->CreateRem (gNbNetDev,ueNetDev.Get(i), 0);
+      }
+
+  }
+
+  if(instTput)
+  {
+      std::string filename1 = outputDir + "/" + "Q10-throughPuts" + schedulerType;
+      outFile1.open (filename1.c_str (), std::ofstream::out | std::ofstream::app);
+      if (!outFile1.is_open ())
+      {
+          NS_LOG_ERROR ("Can't open file " << filename1);
+          return 1;
+      }
+      outFile1.setf (std::ios_base::fixed);
+      Simulator::Schedule(Seconds(0.001),&ThroughputMonitor,&flowmonHelper, monitor);
+  }
   Simulator::Stop (Seconds (simTime));
   Simulator::Run ();
 
@@ -547,8 +611,52 @@ main (int argc, char *argv[])
   std::cout << "\n Total UDP throughput (bps):" <<
   (serverApp->GetReceived () * udpPacketSize * 8) / (simTime - udpAppStartTime) << std::endl;
 //  }
+  if(instTput)
+  {
+      ThroughputMonitor(&flowmonHelper, monitor);
+  }
   Simulator::Destroy ();
+
+  if(instTput)
+  {
+      for(unsigned int i=0;i<flowwise.size();i++)
+      {
+          // std::cout<<flowwise[0].size();
+          if(i==1)
+          {
+              for(unsigned int j=0;j<flowwise[i].size();j++)
+                  outFile1 << flowwise[1][j]<<"\n";
+              //            std::cout<<flowwise[1][j]<<"\n";
+              std::cout<<"\n";
+          }
+
+      }
+  }
   return 0;
 }
 
+void ThroughputMonitor (FlowMonitorHelper *fmhelper, Ptr<FlowMonitor> flowMon)
+{
+	std::map<FlowId, FlowMonitor::FlowStats> flowStats = flowMon->GetFlowStats();
+	Ptr<Ipv4FlowClassifier> classing = DynamicCast<Ipv4FlowClassifier> (fmhelper->GetClassifier());
+	for (std::map<FlowId, FlowMonitor::FlowStats>::const_iterator stats = flowStats.begin (); stats != flowStats.end (); ++stats)
+	{
+		//if(FlowId)
+		double throughput=stats->second.rxBytes * 8.0 / (stats->second.timeLastRxPacket.GetSeconds()-stats->second.timeFirstTxPacket.GetSeconds())/1024/1024;
+		flowwise[stats->first].push_back(throughput);
+
+		/*
+		Ipv4FlowClassifier::FiveTuple fiveTuple = classing->FindFlow (stats->first);
+		std::cout<<"Flow ID			: " << stats->first <<" ; "<< fiveTuple.sourceAddress <<" -----> "<<fiveTuple.destinationAddress<<std::endl;
+		std::cout<<"Duration		: "<<stats->second.timeLastRxPacket.GetSeconds()-stats->second.timeFirstTxPacket.GetSeconds()<<std::endl;
+		std::cout<<"Last Received Packet	: "<< stats->second.timeLastRxPacket.GetSeconds()<<" Seconds"<<std::endl;
+		std::cout<<"Throughput: " << throughput  << " Mbps"<<std::endl;
+		std::cout<<"---------------------------------------------------------------------------"<<std::endl;
+		*/
+	}
+//	std::cout<<"Length of flowwise[1]="<<flowwise[1].size()<<"\n";
+
+	Simulator::Schedule(Seconds(0.001),&ThroughputMonitor, fmhelper, flowMon);
+
+}
 
