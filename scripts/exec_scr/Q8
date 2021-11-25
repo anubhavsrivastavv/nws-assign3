@@ -1,0 +1,37 @@
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=2 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobileRR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=3 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobileRR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=4 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobileRR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=5 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobileRR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=6 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobileRR --outputDir=./outputFiles/Q8"
+
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=2 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobilePF --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=3 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobilePF --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=4 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobilePF --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=5 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobilePF --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=6 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobilePF --outputDir=./outputFiles/Q8"
+
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=2 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobileMR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=3 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobileMR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=4 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobileMR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=5 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobileMR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=mobile --speed=50 --ueNumPergNb=10 --rngRun=6 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-mobileMR --outputDir=./outputFiles/Q8"
+
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=static --ueNumPergNb=10 --rngRun=2 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticRR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=static --ueNumPergNb=10 --rngRun=3 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticRR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=static --ueNumPergNb=10 --rngRun=4 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticRR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=static --ueNumPergNb=10 --rngRun=5 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticRR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=static --ueNumPergNb=10 --rngRun=6 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticRR --outputDir=./outputFiles/Q8"
+
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=static --ueNumPergNb=10 --rngRun=2 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticPF --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=static --ueNumPergNb=10 --rngRun=3 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticPF --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=static --ueNumPergNb=10 --rngRun=4 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticPF --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=static --ueNumPergNb=10 --rngRun=5 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticPF --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=static --ueNumPergNb=10 --rngRun=6 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticPF --outputDir=./outputFiles/Q8"
+
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=static --ueNumPergNb=10 --rngRun=2 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticMR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=static --ueNumPergNb=10 --rngRun=3 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticMR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=static --ueNumPergNb=10 --rngRun=4 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticMR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=static --ueNumPergNb=10 --rngRun=5 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticMR --outputDir=./outputFiles/Q8"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=static --ueNumPergNb=10 --rngRun=6 --simTime=10 --numerology=1 --fullBufferFlag=1 --simOutFile=Q8-staticMR --outputDir=./outputFiles/Q8"
+
+

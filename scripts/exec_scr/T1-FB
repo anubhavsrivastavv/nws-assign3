@@ -1,0 +1,37 @@
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=static --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaRR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=static --rngRun=3 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaRR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=static --rngRun=4 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaRR --outputDir=./outputFiles/T1" 
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=static --rngRun=5 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaRR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=static --rngRun=6 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaRR --outputDir=./outputFiles/T1"
+
+./waf --run "asg3 --schedulerType=OfdmaRR --ueMobility=static --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaRR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaRR --ueMobility=static --rngRun=3 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaRR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaRR --ueMobility=static --rngRun=4 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaRR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaRR --ueMobility=static --rngRun=5 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaRR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaRR --ueMobility=static --rngRun=6 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaRR --outputDir=./outputFiles/T1"
+
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=static --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaPF --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=static --rngRun=3 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaPF --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=static --rngRun=4 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaPF --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=static --rngRun=5 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaPF --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=static --rngRun=6 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaPF --outputDir=./outputFiles/T1"
+
+./waf --run "asg3 --schedulerType=OfdmaPF --ueMobility=static --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaPF --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaPF --ueMobility=static --rngRun=3 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaPF --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaPF --ueMobility=static --rngRun=4 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaPF --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaPF --ueMobility=static --rngRun=5 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaPF --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaPF --ueMobility=static --rngRun=6 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaPF --outputDir=./outputFiles/T1"
+
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=static --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaMR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=static --rngRun=3 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaMR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=static --rngRun=4 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaMR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=static --rngRun=5 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaMR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=static --rngRun=6 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-TdmaMR --outputDir=./outputFiles/T1"
+
+./waf --run "asg3 --schedulerType=OfdmaMR --ueMobility=static --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaMR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaMR --ueMobility=static --rngRun=3 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaMR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaMR --ueMobility=static --rngRun=4 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaMR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaMR --ueMobility=static --rngRun=5 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaMR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaMR --ueMobility=static --rngRun=6 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-FB-OfdmaMR --outputDir=./outputFiles/T1"
+
+

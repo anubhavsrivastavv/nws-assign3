@@ -1,0 +1,4 @@
+./waf --run "asg3 --remPlot=true"
+cp nr-rem--ues.txt nr-rem--plot-rem.gnuplot nr-rem-.out nr-rem--gnbs.txt nr-rem--buildings.txt outputFiles/Q7/
+cd outputFiles/Q7/
+gnuplot -p nr-rem--gnbs.txt nr-rem--ues.txt nr-rem--buildings.txt nr-rem--plot-rem.gnuplot

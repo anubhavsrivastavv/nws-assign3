@@ -1,0 +1,7 @@
+./waf --run "asg3 --schedulerType=TdmaRR --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-PartB-TdmaRR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaPF --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-PartB-TdmaPF --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=TdmaMR --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-PartB-TdmaMR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaRR --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-PartB-OfdmaRR --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaPF --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-PartB-OfdmaPF --outputDir=./outputFiles/T1"
+./waf --run "asg3 --schedulerType=OfdmaMR --rngRun=2 --numerology=1 --fullBufferFlag=1 --simOutFile=T1-PartB-OfdmaMR --outputDir=./outputFiles/T1"
+

@@ -1,0 +1,8 @@
+./waf --run "asg3 --schedulerType=TdmaRR --ueMobility=mobile --ueNumPergNb=10 --rngRun=2 --speed=50 --simTime=10 --numerology=1 --fullBufferFlag=1 --instTput=1 --outputDir=./outputFiles/Q10"
+./waf --run "asg3 --schedulerType=TdmaPF --ueMobility=mobile --ueNumPergNb=10 --rngRun=2 --speed=50 --simTime=10 --numerology=1 --fullBufferFlag=1 --instTput=1 --outputDir=./outputFiles/Q10"
+./waf --run "asg3 --schedulerType=TdmaMR --ueMobility=mobile --ueNumPergNb=10 --rngRun=2 --speed=50 --simTime=10 --numerology=1 --fullBufferFlag=1 --instTput=1 --outputDir=./outputFiles/Q10"
+./waf --run "asg3 --ueMobility=mobile --ueNumPergNb=10 --rngRun=2 --speed=50 --simTime=10 --numerology=1 --fullBufferFlag=1 --remPlot=1 --snrLog=1" &>logsnr.txt
+cp logsnr.txt outputFiles/Q10/
+cd outputFiles/Q10/
+python3 ../../scripts/dataGen_scr/extractSNR.py
+
