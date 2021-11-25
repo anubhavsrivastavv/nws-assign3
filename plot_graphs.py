@@ -101,25 +101,52 @@ def Q9():
   plt.legend()
   plt.show()
 
-def _snr(file_path, scheduling_algo):
+def _snr(file_path):
   f = open(file_path, 'r+')
   y_vals, x_vals =[], []
   count = 1
   for line in f.readlines():
     y_vals.append(float(line))
-    x_vals.append(count/1000)
+    x_vals.append(count)
     count += 1
 
   #print(count)
 
   fig, ax = plt.subplots()
-  ax.plot(x_vals, y_vals, label = scheduling_algo)
-  plt.xlabel('Time (in seconds)')
+  ax.plot(x_vals, y_vals)
+  plt.xlabel('Time (in ms)')
   plt.ylabel('SNR')
-  plt.legend()
+  #plt.legend()
   plt.show()
 
+def _instant_throuughput():
+  f_RR = open('Q10-throughPutsTdmaRR', 'r+')
+  f_MR = open('Q10-throughPutsTdmaMR', 'r+')
+  f_PF = open('Q10-throughPutsTdmaPF', 'r+')
 
+  y_vals_RR, y_vals_MR, y_vals_PF, x_vals =[], [], [], []
+  count = 1
+  for line in f_RR.readlines():
+    y_vals_RR.append(float(line))
+    x_vals.append(count)
+    count += 1
+
+  for line in f_MR.readlines():
+    y_vals_MR.append(float(line))
+
+  for line in f_PF.readlines():
+    y_vals_PF.append(float(line))
+
+  #print(count)
+
+  fig, ax = plt.subplots()
+  ax.plot(x_vals, y_vals_RR, label = 'RR')
+  ax.plot(x_vals, y_vals_MR, label = 'MR')
+  ax.plot(x_vals, y_vals_PF, label = 'PF')
+  plt.xlabel('Time (in ms)')
+  plt.ylabel('Throughput')
+  plt.legend()
+  plt.show()
 
 
 if __name__ == "__main__":
@@ -134,9 +161,8 @@ if __name__ == "__main__":
   elif args.task == 'Q9':
     Q9()
   elif args.task == 'Q10':
-    _snr('Q10-RR-SNR', 'RR')
-    _snr('Q10-MR-SNR', 'MR')
-    _snr('Q10-PF-SNR', 'PF')
+    _snr('Q10-RR-SNR')
+    _instant_throuughput()
   else:
     print('Please specify the task to be performed')
 

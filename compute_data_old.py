@@ -51,6 +51,16 @@ def generate_data_B(file_path):
   delay = [0 for i in range(6)]
   loss_rate = [0 for i in range(6)]
 
+  #This is for single iteration
+  data = json_data_list[1]
+  for i in range(6):
+    througput[i] = througput[i] + float(data["Flow"+str(i+1)]["Throughput"].split()[0])
+    loss_rate[i] = loss_rate[i] + float(data["Flow"+str(i+1)]["Loss Rate"])
+    delay[i] = delay[i] + float(data["Flow"+str(i+1)]['Mean delay'].split()[0])
+
+  
+  """#This is for multiple iterations
+
   for data in json_data_list:
     #Flowwise
     for i in range(6):
@@ -58,18 +68,26 @@ def generate_data_B(file_path):
       loss_rate[i] = loss_rate[i] + float(data["Flow"+str(i+1)]["Loss Rate"])
       delay[i] = delay[i] + float(data["Flow"+str(i+1)]['Mean delay'].split()[0])
   
+
   for i in range(6):
     print(f'For UE {i+1}')
     print('througput: ', round(througput[i]/5, 3))
     print('loss_rate: ', round(loss_rate[i]/5, 3))
-    print('delay: ', round(delay[i]/5, 3))    
+    print('delay: ', round(delay[i]/5, 3))"""
+
+  for i in range(6):
+    print(f'For UE {i+1}')
+    print('througput: ', througput[i])
+    print('loss_rate: ', loss_rate[i])
+    print('delay: ', delay[i])
   
-  return [i/5 for i in througput], [i/5 for i in loss_rate], [i/5 for i in delay]
+  #return [i/5 for i in througput], [i/5 for i in loss_rate], [i/5 for i in delay]
+  return througput, loss_rate, delay
 
 
 def Task1():
 
-	print('############### Task1 Part A ###############')
+	"""print('############### Task1 Part A ###############')
 	print('T1-FB-OfdmaMR')
 	generate_data_A('t1fullbufferrun/T1-FB-OfdmaMR')
 	print()
@@ -88,7 +106,7 @@ def Task1():
 	print('T1-FB-TdmaRR')
 	generate_data_A('t1fullbufferrun/T1-FB-TdmaRR')
 	print()
-	print()
+	print()"""
 
 	
 	print('############### Task1 Part B ###############')
@@ -116,30 +134,30 @@ def Task2():
 	print('############### Task2 Part A ###############')
 
 	print('Numerlogy 0')
-	generate_data_A('t2fullbufferrun/TdmaPFNum0')
+	generate_data_A('T2-Numerology0')
 	print()
 	print('Numerlogy 1')
-	generate_data_A('t2fullbufferrun/TdmaPFNum1')
+	generate_data_A('T2-Numerology1')
 	print()
 	print('Numerlogy 2')
-	generate_data_A('t2fullbufferrun/TdmaPFNum2')
+	generate_data_A('T2-Numerology2')
 	print()
 	print('Numerlogy 3')
-	generate_data_A('t2fullbufferrun/TdmaPFNum3')
+	generate_data_A('T2-Numerology3')
 	print()
 	print()
 	print('############### Task2 Part B ###############')
 	print('Numerlogy 0')
-	generate_data_B('t2fullbufferrun/TdmaPFNum0')
+	generate_data_B('T2-Numerology0')
 	print()
 	print('Numerlogy 1')
-	generate_data_B('t2fullbufferrun/TdmaPFNum1')
+	generate_data_B('T2-Numerology1')
 	print()
 	print('Numerlogy 2')
-	tputNum2, lossNum2, delayNum2 = generate_data_B('t2fullbufferrun/TdmaPFNum2')
+	tputNum2, lossNum2, delayNum2 = generate_data_B('T2-Numerology2')
 	print()
 	print('Numerlogy 3')
-	tputNum3, lossNum3, delayNum3 = generate_data_B('t2fullbufferrun/TdmaPFNum3')
+	tputNum3, lossNum3, delayNum3 = generate_data_B('T2-Numerology3')
 	print()
 	print('Average of 2 and 3')
 	for i in range(6):
@@ -270,7 +288,7 @@ def Q9():
 
 if __name__ == "__main__":
 
-	parser = argparse.ArgumentParser()
+	"""parser = argparse.ArgumentParser()
 	parser.add_argument("-t", "--task", help="specify T1, T2, T3 or Q8, Q9")
 	parser.add_argument("-f", "--file_path", help="Path of file to be used")
 	args = parser.parse_args()
@@ -278,13 +296,13 @@ if __name__ == "__main__":
 
 	if args.task == 'T1':
 		Task1()
-	elif args.task == 'T2':
-		Task2()
-	elif args.task == 'Q8':
+	elif args.task == 'T2':"""
+	Task2()
+	"""elif args.task == 'Q8':
 		Q8()
 	elif args.task == 'Q9':
 		Q9()
 	else:
-		print('Please specify the task to be performed')
+		print('Please specify the task to be performed')"""
 
 
